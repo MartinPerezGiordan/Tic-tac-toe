@@ -6,5 +6,7 @@
 
 .cell{
     border: 2px solid black;
+    font-size: 64px;
+    text-align: center;
 
 }

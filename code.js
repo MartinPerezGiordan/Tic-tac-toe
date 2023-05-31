@@ -8,6 +8,8 @@ const msg = document.querySelector('.end-message')
 let gameOn = true;
 const pOneInput = document.querySelector('#pOneName')
 const pTwoInput = document.querySelector('#pTwoName')
+const message = document.querySelector('.message')
+
 
 
 let turn = 1
@@ -49,10 +51,9 @@ const gameboard = (()=>{
         gameFlow.addMark();
         msg.innerHTML=''
         gameOn=true
-        playerOne.name = pOneInput.value
-        playerTwo.name = pTwoInput.value
-        pOneInput.style.display = 'none';
-        pTwoInput.style.display = 'none';
+        if(pOneInput.value!=''){playerOne.name = pOneInput.value}
+        if(pTwoInput.value!=''){playerTwo.name = pTwoInput.value}
+        message.style.display = 'none';
 
     }
     
@@ -119,8 +120,7 @@ const gameFlow = (()=>{
                 msg.innerHTML = player.name + ' wins!!!'
                 gameOn=false
                 console.log(gameOn)
-                pOneInput.style.display = 'block';
-                pTwoInput.style.display = 'block';
+                message.style.display = 'flex';
             }
 
         else if(board[0]!==''&&
@@ -134,8 +134,7 @@ const gameFlow = (()=>{
             board[8]!==''){
             msg.innerHTML ='It`s a tie'
             gameOn=false
-            pOneInput.style.display = 'block';
-            pTwoInput.style.display = 'block';
+            message.style.display = 'flex';
             
         }
         
